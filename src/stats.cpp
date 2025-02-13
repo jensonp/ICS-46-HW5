@@ -41,4 +41,6 @@ Stats::Stats(string name, const vector<int> &chain_lengths)
             sum_squares += diff*diff; }
         stddev = std::sqrt(sum_squares / chain_lengths.size()); } 
     else{ stddev = 0; }
+
+    for (int len : chain_lengths){ if(len > 0) {histogram[len]++; } }
 }
