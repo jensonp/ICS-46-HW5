@@ -2,8 +2,19 @@
 #define HASHER_H
 #include <iostream>
 #include <limits>
-
+#include <string>
 using namespace std;
+
+
+struct Hasher
+{
+    const string name;
+    Hasher(const char *nm)
+        : name(nm) { }
+    virtual ~Hasher() {} // new
+    virtual size_t hash(string key, int N) const = 0;
+};
+
 
 struct MyHasher : public Hasher {
     MyHasher() : Hasher("MyHasher") { }
@@ -17,16 +28,6 @@ struct MyHasher : public Hasher {
         return hash % N;
     }
 };
-
-struct Hasher
-{
-    const string name;
-    Hasher(const char *nm)
-        : name(nm) { }
-    virtual ~Hasher() {} // new
-    virtual size_t hash(string key, int N) const = 0;
-};
-
 struct MultHasher
     : public Hasher
 {
