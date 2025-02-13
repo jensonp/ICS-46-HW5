@@ -35,14 +35,14 @@ struct Stats {
     void print(ostream & out)
     {
         cout << name << endl;
-        out << "Entries = " << entries << endl;
+        //out << "Entries = " << entries << endl;
         out << "Chains = " << chains << endl;
-        out << "Load Factor = " << load_factor << endl;
+        //out << "Load Factor = " << load_factor << endl;
         out << "Min = " << min << endl;
         out << "Max = " << max << endl;
-        out << "Span = " << (max-min) << endl;
-        out << "Mean = " << mean << endl;
-        out << "StdDev = " << stddev << endl;
+        //out << "Span = " << (max-min) << endl;
+        //out << "Mean = " << mean << endl;
+        out << "Standard Deviation = " << stddev << endl;
         // print_histogram(out);
     }
 };

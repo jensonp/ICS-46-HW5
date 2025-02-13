@@ -10,6 +10,7 @@ struct Hasher
     const string name;
     Hasher(const char *nm)
         : name(nm) { }
+    virtual ~Hasher() {} // new
     virtual size_t hash(string key, int N) const = 0;
 };
 
@@ -72,7 +73,6 @@ struct WeissHasher
 		return result % N;
     }
 };
-
 struct PJWHasher
     : public Hasher
 {
@@ -103,7 +103,6 @@ struct PJWHasher
         return hashValue % N;
     }
 };
-
 struct GoodrichHasher
     : public Hasher
 {

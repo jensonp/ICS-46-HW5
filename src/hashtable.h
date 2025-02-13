@@ -6,12 +6,12 @@ using namespace std;
 #include "hasher.h"
 #include "stats.h"
 
-// constexpr size_t NWORDS = 45;
+//constexpr size_t NWORDS = 45;
 constexpr size_t NWORDS = 45392;
 
 struct ListNode {
     string data;
-    ListNode * next;
+    ListNode *next;
     ListNode(string new_data, ListNode * new_next)
         : data(new_data), next(new_next) { }
     static ListNode * find(string key, ListNode * L);
@@ -26,7 +26,7 @@ class HashTable
 {
     const Hasher & hasher;
     const size_t capacity;
-    ListNode * * buf;
+    ListNode **buf;
     const string name;
 public:
     HashTable(const Hasher & h, size_t cap = NWORDS/45)
@@ -39,7 +39,7 @@ public:
             buf[i] = nullptr;
     }
 
-    void insert( const string & word);
+    void insert(const string & word);
     bool find( const string & word);
     void remove( const string & word);
     bool is_empty();
@@ -49,7 +49,7 @@ public:
     HashTable(const HashTable & L) = delete;
     HashTable& operator =(const HashTable & L) = delete;
 
-    string get_name() { return name + " using " + hasher.name; }
+    string get_name() { return name + " using " + hasher.name;}
     size_t number_of_entries();
     size_t number_of_chains();
     void get_chain_lengths(vector<int> & v);
