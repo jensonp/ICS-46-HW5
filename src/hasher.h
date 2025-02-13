@@ -5,6 +5,19 @@
 
 using namespace std;
 
+struct MyHasher : public Hasher {
+    MyHasher() : Hasher("MyHasher") { }
+    size_t hash(string key, int N) const override {
+        const size_t fnv_prime = 1099511628211ULL;
+        size_t hash = 1469598103934665603ULL;
+        for (char c : key) {
+            hash ^= static_cast<size_t>(c);
+            hash *= fnv_prime;
+        }
+        return hash % N;
+    }
+};
+
 struct Hasher
 {
     const string name;
