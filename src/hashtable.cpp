@@ -38,7 +38,6 @@ void ListNode::print(ostream & out, ListNode *L){
     for(ListNode *t=L; t!=nullptr; t=t->next){
         out << t->data << "\n";
     }
-    out << "\n";
 }
 
 int ListNode::length(ListNode *L){
@@ -81,7 +80,6 @@ void ListNode::delete_list(ListNode * L){
     void HashTable::print(ostream &out){
         for(size_t i=0; i<capacity; ++i){
             if(buf[i]!=nullptr){
-                out << i << ": ";
                 ListNode::print(out, buf[i]);
             }
         }
@@ -101,9 +99,10 @@ void ListNode::delete_list(ListNode * L){
         return total;
     }
     size_t HashTable::number_of_chains(){
-        size_t total = 0;
-        for(size_t i=0; i<capacity; ++i){ if(buf[i] != nullptr) ++total; }
-        return total;
+        //size_t total = 0;
+        //for(size_t i=0; i<capacity; ++i){ if(buf[i] != nullptr) ++total; }
+        //return total;
+        return capacity;
     }
     void HashTable::get_chain_lengths(vector<int> &v){
         v.clear();
